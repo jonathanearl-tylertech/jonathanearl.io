@@ -1,0 +1,21 @@
+import { projects } from '../data/projects';
+import Test from '../components/test';
+import { frontend, backend, other } from '../data/skills';
+import Index from './index';
+
+# import react component 
+<Test projects={projects} />
+<hr />
+
+# Use jsx inside mdx
+can use basic jsx syntax, seems like it converts md -> jsx
+<ul>{frontend.map(skill => <li>{skill}</li>)}</ul>
+<hr />
+
+# MDX inside MDX
+imports mdx into mdx (mdx is mdx syntax converted to html)
+* seems to have an issue if this is the last component
+* need to wrap it in jsx
+<div>
+    <Index />
+</div>

@@ -1,0 +1,32 @@
+import React from 'react';
+import styled from 'styled-components';
+
+type Prop = { title: string, skills: string[] };
+
+export const SkillsCard = ({ title, skills }: Prop) => {
+  return (
+    <Card>
+      <Title>{title}</Title>
+      <List>
+        {skills.map(skill => <li key={skill}>{skill}</li>)}
+      </List>
+    </Card>
+  );
+}
+
+const Card = styled.article`
+  background-color: #eee;
+  padding: 1em;
+`
+
+const Title = styled.h2`
+  color: red;
+  font-family: 'opensans'
+`
+
+const List = styled.ul`
+  > * {
+    margin-bottom: .25em;
+    font-family: "opensans-light";
+  }
+`;
