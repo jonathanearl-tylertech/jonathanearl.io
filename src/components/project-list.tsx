@@ -3,14 +3,12 @@ import styled from 'styled-components';
 import { ProjectCard } from './project-card';
 import { projects } from '../data/projects';
 import { colors } from '../styles/colors';
+import { SectionTitle } from './section-title';
 
 export const ProjectList = () => {
   return (
     <section>
-      <Title>
-        <TitleNumber>.03</TitleNumber>
-        <span>Some things i'm working on</span>
-      </Title>
+      <SectionTitle count="03" title="Some things i'm working on"></SectionTitle>
       {
         projects.map((project, index) => (<ProjectCard key={index} project={ project } reverse={index % 2 === 0}/>))
       }
@@ -31,13 +29,4 @@ const Title = styled.h3`
   color: ${colors.white};
   font-size: 26px;
   margin-bottom: 1em;
-`;
-
-const Row = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  & > * {
-    width: 47%;
-    margin-right: 3%;
-  }
 `;
