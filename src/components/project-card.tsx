@@ -37,9 +37,8 @@ const Card = styled.article`
   position: relative;
   height: 300px;
   width: 100%;
-  padding: 2em;
   display: flex;
-  margin-bottom: 2em;
+  margin-bottom: 100px;
   justify-content: space-around;
   align-items: center;
 `;
@@ -113,7 +112,7 @@ const Description = styled.p`
   font-family: 'opensans-light';
   background-color: ${colors.navy};
   color: ${colors.grey};
-  min-height: 150px;
+  min-height: 125px;
   width: 100%;
   font-size: 18px;
   margin-bottom: .5em;
