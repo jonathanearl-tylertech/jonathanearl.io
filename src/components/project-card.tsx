@@ -3,15 +3,13 @@ import styled from 'styled-components';
 import { Project } from '../data/projects';
 import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
 import { FaLink } from '@react-icons/all-files/fa/FaLink';
-
+import { colors } from '../styles/colors';
 
 export const ProjectCard = (props: { project: Project, reverse: boolean }) => {
   const { project, reverse } = props;
-
   const ImageVersion = reverse ? ReverseImageWrapper : ImageWrapper;
   const ColVersion = reverse ? ReverseCol : Col;
 
-  console.log(reverse);
   return (
     <Card>
       <ColVersion>
@@ -52,7 +50,7 @@ const ImageWrapper = styled.div`
   left: 0;
   max-height: 300px;
   width: 60%;
-  background-color: #F5DF4D;
+  background-color: ${colors.yellow};
   overflow: hidden;
   border-radius: 7px;
 `;
@@ -63,7 +61,7 @@ const ReverseImageWrapper = styled.div`
   right: 0;
   max-height: 300px;
   width: 60%;
-  background-color: #F5DF4D;
+  background-color: ${colors.yellow};
   overflow: hidden;
   border-radius: 7px;
 `;
@@ -101,7 +99,7 @@ const ReverseCol = styled.div`
 
 const ProjectLabel = styled.h3`
   font-size: 13px;
-  color: #F5DF4D;
+  color: ${colors.yellow};
   text-transform: capitalize;
 `;
 
@@ -113,8 +111,8 @@ const Row = styled.div`
 const Description = styled.p`
   margin-bottom: auto;
   font-family: 'opensans-light';
-  background-color: rgb(17, 34, 64);
-  color: rgb(168, 178, 209);
+  background-color: ${colors.navy};
+  color: ${colors.grey};
   min-height: 150px;
   width: 100%;
   font-size: 18px;
@@ -128,7 +126,7 @@ const Title = styled.h3`
   text-transform: capitalize;
   font-size: 28px;
   margin-bottom: 1em;
-  color: rgb(204, 214, 246);
+  color: ${colors.white};
 `;
 
 const Button = styled.a`
@@ -136,7 +134,7 @@ const Button = styled.a`
   align-items: center;
   font-size: 20px;
   padding: .5em;
-  color: rgb(204, 214, 246);
+  color: ${colors.white};
   & > * {
     margin-right: .5em;
   }

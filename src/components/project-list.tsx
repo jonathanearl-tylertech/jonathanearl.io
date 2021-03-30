@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ProjectCard } from './project-card';
 import { projects } from '../data/projects';
+import { colors } from '../styles/colors';
 
 export const ProjectList = () => {
   return (
@@ -19,7 +20,7 @@ export const ProjectList = () => {
 
 const TitleNumber = styled.span`
   font-family: 'opensans-light';
-  color: #F5DF4D;
+  color: ${colors.yellow};
   font-size: 18px;
   margin-right: .5em;
 `;
@@ -27,7 +28,7 @@ const TitleNumber = styled.span`
 const Title = styled.h3`
   font-family: 'opensans-bold';
   text-transform: capitalize;
-  color: rgb(204, 214, 246);
+  color: ${colors.white};
   font-size: 26px;
   margin-bottom: 1em;
 `;
