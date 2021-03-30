@@ -18,16 +18,23 @@
   src: url('../fonts/OpenSans-Regular.ttf') 
 }
 
+
+html {
+  background-color: #0d1117;
+  color: rgb(204, 214, 246);
+  font-family: 'opensans-light';
+}
+
+p {
+  color: #fff;
+}
+
+a {
+  color: #F5DF4D
+}
+
 * { 
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-p {
-  margin-bottom: .5em;
 }

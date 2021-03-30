@@ -6,18 +6,30 @@ import { projects } from '../data/projects';
 export const ProjectList = () => {
   return (
     <section>
-      <Title>projects</Title>
+      <Title>
+        <TitleNumber>.03</TitleNumber>
+        <span>Some things i'm working on</span>
+      </Title>
       {
-        projects.map(project => (<ProjectCard project={ project }/>))
+        projects.map((project, index) => (<ProjectCard key={index} project={ project } reverse={index % 2 === 0}/>))
       }
     </section>
   )
 }
 
-const Title = styled.h3`
+const TitleNumber = styled.span`
   font-family: 'opensans-light';
-  font-size: 16px;
+  color: #F5DF4D;
+  font-size: 18px;
+  margin-right: .5em;
+`;
+
+const Title = styled.h3`
+  font-family: 'opensans-bold';
   text-transform: capitalize;
+  color: rgb(204, 214, 246);
+  font-size: 26px;
+  margin-bottom: 1em;
 `;
 
 const Row = styled.div`
