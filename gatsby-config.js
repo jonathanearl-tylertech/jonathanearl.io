@@ -4,6 +4,7 @@ module.exports = {
     siteUrl: "https://jonathanearl.io"
   },
   plugins: [
+    "gatsby-plugin-material-ui",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
