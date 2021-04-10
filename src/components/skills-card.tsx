@@ -3,7 +3,6 @@ import '../styles/index.scss';
 
 type Prop = { title: string, skills: string[], index: number };
 
-
 export const SkillsCard = ({ title, skills, index }: Prop) => {
 
   return (
