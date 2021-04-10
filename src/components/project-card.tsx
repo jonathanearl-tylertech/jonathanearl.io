@@ -4,18 +4,32 @@ import { Project } from '../data/projects';
 import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
 import { FaLink } from '@react-icons/all-files/fa/FaLink';
 import { colors } from '../styles/colors';
+import { Chip } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  root: {
+    backgroundColor: 'white',
+  },
+});
 
 export const ProjectCard = (props: { project: Project, reverse: boolean }) => {
   const { project, reverse } = props;
   const ImageVersion = reverse ? ReverseImageWrapper : ImageWrapper;
   const ColVersion = reverse ? ReverseCol : Col;
+  const classes = useStyles();
 
   return (
     <Card>
       <ColVersion>
         <ProjectLabel>{project.projectType} project</ProjectLabel>
         <Title>{project.name}</Title>
-        <Description>{project.description}</Description>
+        <Description>
+          <div>{project.description}</div>
+          <TechnologyArea>
+            { project.technologies.map(t => (<Chip className={classes.root} label={t}/>)) }
+          </TechnologyArea>
+        </Description>
         <Row>
           <Button href={project.githubUrl}>
             <FaGithub />
@@ -26,7 +40,7 @@ export const ProjectCard = (props: { project: Project, reverse: boolean }) => {
         </Row>
       </ColVersion>
       <ImageVersion>
-        <Image src="https://place.dog/300/200" />
+        <Image src={project.imgUrl ? project.imgUrl : 'https://place.dog/300/200'} />
       </ImageVersion>
     </Card>
   );
@@ -47,29 +61,27 @@ const ImageWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  max-height: 300px;
+  height: 300px;
   width: 60%;
-  background-color: ${colors.yellow};
+  background-color: #939597;
   overflow: hidden;
-  border-radius: 7px;
 `;
 
 const ReverseImageWrapper = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  max-height: 300px;
+  height: 300px;
   width: 60%;
-  background-color: ${colors.yellow};
+  background-color: #939597;
   overflow: hidden;
-  border-radius: 7px;
 `;
 
 const Image = styled.img`
   height: 100%;
   width: 100%;
   object-fit: cover;
-  opacity: .7;
+  opacity: .2;
 `;
 
 const Col = styled.div`
@@ -108,15 +120,17 @@ const Row = styled.div`
 `;
 
 const Description = styled.p`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin-bottom: auto;
   font-family: 'opensans-light';
-  background-color: ${colors.navy};
-  color: ${colors.grey};
+  background-color: #F5DF4D;
+  color: #333;
   min-height: 125px;
   width: 100%;
-  font-size: 18px;
-  margin-bottom: .5em;
-  border-radius: 7px;
+  font-weight: 500;
+  font-size: 22px;
   padding: 1em;
 `;
 
@@ -125,7 +139,7 @@ const Title = styled.h3`
   text-transform: capitalize;
   font-size: 28px;
   margin-bottom: 1em;
-  color: ${colors.white};
+  color: #333;
 `;
 
 const Button = styled.a`
@@ -133,8 +147,16 @@ const Button = styled.a`
   align-items: center;
   font-size: 20px;
   padding: .5em;
-  color: ${colors.white};
+  color: #555;
   & > * {
     margin-right: .5em;
+  }
+`;
+
+const TechnologyArea = styled.div`
+  margin-top: auto;
+  display: flex;
+  & > * {
+    margin-right: 1em;
   }
 `;

@@ -2,6 +2,11 @@
 .project {
     @extend %center-child-vertical;
 
+    &__section {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
     &__container {
         display: flex;
         flex-direction: column;
