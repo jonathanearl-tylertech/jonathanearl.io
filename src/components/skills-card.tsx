@@ -1,68 +1,26 @@
 import React from 'react';
-import styled from 'styled-components';
-import { colors } from '../styles/colors';
-import Chip from '@material-ui/core/Chip';
-import { makeStyles } from '@material-ui/core/styles';
+import BackgroundImage from "gatsby-background-image"
+import '../styles/index.scss';
 
-type Prop = { title: string, skills: string[] };
+type Prop = { title: string, skills: string[], index: number };
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    color: colors.white,
-    backgroundColor: colors.navy,
-    display: 'flex',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-    margin: '.4em',
-  },
-}));
 
-export const SkillsCard = ({ title, skills }: Prop) => {
-  const classes = useStyles();
+export const SkillsCard = ({ title, skills, index }: Prop) => {
 
   return (
-    <Card >
-      <Title>{ title }</Title>
-      <List>
-        { skills.map(skill => <Chip className={classes.root} key={skill} label={skill} size="small"/>) }
-      </List>
-    </Card>
+    <div className={`skill skill--${index}`}>
+      <div className={`skill__header skill__header--${index}`}>
+        <div className={`skill__header-tint skill__header-tint--${index}`}>
+          <h3 className="skill__title-container">
+            <div className={`skill__title skill__title--${index}`}>{title}</div>
+          </h3>
+        </div>
+      </div>
+      <ul className="skill__list">
+        {
+          skills.map(skill => (<li className="skill__item">{skill}</li>))
+        }
+      </ul>
+    </div>
   );
 }
-
-const Card = styled.article`
-  display: flex;
-  padding: .5em;
-`
-
-const Title = styled.h2`
-  text-align: right;
-  margin-right: 1em;
-  font-weight: 600;
-  font-size: 22px;
-  color: ${colors.white};
-  font-family: 'opensans';
-  width: 20%;
-`
-
-const List = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const ListItem = styled.li`
-  display: flex;
-  font-size: 12px;
-  align-items: center;
-  height: 100%;
-  color: ${colors.grey};
-  background-color: ${colors.navy};
-  margin-left: auto;
-  font-family: "opensans-light";
-  border: 1px transparent ${colors.grey};
-  border-radius: 4px;
-  margin: .5em .5em;
-  padding: 4px;
-  min-width: 30px;
-  justify-content: center;
-`;

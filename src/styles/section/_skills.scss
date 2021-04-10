@@ -65,13 +65,13 @@
     }
 
     &__header {
-        &--front {
-            background-image: url('/assets/img/skills/frontend-small.jpg');
+        &--1 {
+            background-image: url('/skills/frontend-small.jpg');
         }
-        &--back {
+        &--2 {
             background-image: url('/assets/img/skills/backend-small.jpg');
         }
-        &--other {
+        &--3 {
             background-image: url('/assets/img/skills/tools-small.jpg');
         }
 
@@ -84,13 +84,13 @@
         &-tint {
             width: 100%;
             height: 100%;
-            &--front {
+            &--1 {
                 background-image: linear-gradient(to bottom right, $lightGreen, $darkGreen);
             }
-            &--back {
+            &--2 {
                 background-image: linear-gradient(to bottom right, $lightOrange, $darkOrange);
             }
-            &--other {
+            &--3 {
                 background-image: linear-gradient(to bottom right, $lightBlue, $darkBlue);
             }
         }
@@ -108,13 +108,13 @@
         color: white;
         font-weight: bold;
         padding: 4px;
-        &--front {
+        &--1 {
             background-image: linear-gradient(to bottom right, $lightGreen, $darkGreen);
         }
-        &--back {
+        &--2 {
             background-image: linear-gradient(to bottom right, $lightOrange, $darkOrange);
         }
-        &--other {
+        &--3 {
             background-image: linear-gradient(to bottom right, $lightBlue, $darkBlue);
         }
     }
