@@ -1,5 +1,4 @@
 import React from 'react';
-import BackgroundImage from "gatsby-background-image"
 import '../styles/index.scss';
 
 type Prop = { title: string, skills: string[], index: number };
