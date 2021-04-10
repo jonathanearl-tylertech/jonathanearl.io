@@ -1,3 +1,8 @@
+import bkmrkrImage from '../images/projects/bkmrkr-small.jpg';
+import figImage from '../images/projects/kg-slim.png';
+import gameGui from '../images/projects/game_gui-small.jpg';
+
+
 export type Project = {
   projectType: 'fun' | 'personal' | 'group' | 'learning'
   name: string,
@@ -11,21 +16,39 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    projectType: 'learning',
-    name: 'fig',
-    imgUrl: undefined,
-    description: 'An instagram clone',
-    demoUrl: undefined,
-    githubUrl: undefined,
-    technologies: [],
-  },
-  {
     projectType: 'personal',
     name: 'jonathanearl.io',
     imgUrl: undefined,
     description: 'My current portfolio',
     demoUrl: '/',
     githubUrl: 'https://github.com/whattheearl/jonathanearl.io',
-    technologies: [],
+    technologies: ['React', 'Gatsby'],
+  },
+  {
+    projectType: 'learning',
+    name: 'bkmrkr',
+    imgUrl: bkmrkrImage,
+    description: 'A chrome extension for bookmarking projects and events',
+    demoUrl: undefined,
+    githubUrl: undefined,
+    technologies: ['react'],
+  },
+  {
+    projectType: 'learning',
+    name: 'fig',
+    imgUrl: figImage,
+    description: 'An instagram clone',
+    demoUrl: undefined,
+    githubUrl: undefined,
+    technologies: ['react', 'node', 'openid connect'],
+  },
+  {
+    projectType: 'group',
+    name: 'Javscript Game Engine',
+    imgUrl: gameGui,
+    description: 'Capstone project for the University of Washington',
+    demoUrl: '/',
+    githubUrl: 'https://github.com/whattheearl/jonathanearl.io',
+    technologies: ['Javascript', 'Canvas', 'HTML', 'CSS'],
   },
 ];
