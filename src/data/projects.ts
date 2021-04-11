@@ -44,7 +44,7 @@ export const projects: Project[] = [
   },
   {
     projectType: 'group',
-    name: 'Javscript Game Engine',
+    name: 'Javascript Game Engine',
     imgUrl: gameGui,
     description: 'Capstone project for the University of Washington',
     demoUrl: '/',
