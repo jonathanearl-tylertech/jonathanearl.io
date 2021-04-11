@@ -124,7 +124,6 @@ const Description = styled.p`
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: auto;
-  font-family: 'opensans-light';
   background-color: #F5DF4D;
   color: #333;
   min-height: 125px;
@@ -135,7 +134,6 @@ const Description = styled.p`
 `;
 
 const Title = styled.h3`
-  font-family: 'opensans-bold';
   text-transform: capitalize;
   font-size: 28px;
   margin-bottom: 1em;

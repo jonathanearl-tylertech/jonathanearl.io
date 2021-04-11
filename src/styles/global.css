@@ -1,27 +1,14 @@
 @font-face {
-  font-family: 'opensans-light';
+  font-family: 'meslo';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/OpenSans-Light.ttf') 
-}
-
-@font-face {
-  font-family: 'opensans-bold';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/OpenSans-Bold.ttf') }
-
-@font-face {
-  font-family: 'opensans';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/OpenSans-Regular.ttf') 
+  src: url('../fonts/MesloLGS NF Regular.ttf') 
 }
 
 
 html {
   color: rgb(#efe);
-  font-family: 'opensans-light';
+  font-family: 'meslo';
   box-sizing: border-box;
 }
 
@@ -37,4 +24,5 @@ a {
   margin: 0;
   padding: 0;
   list-style: none;
+  box-sizing: border-box;
 }

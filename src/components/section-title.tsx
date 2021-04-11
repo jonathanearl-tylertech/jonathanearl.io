@@ -14,14 +14,12 @@ export const SectionTitle = ({ count, title } : prop) => {
 }
 
 const TitleNumber = styled.span`
-  font-family: 'opensans-light';
   color: ${colors.yellow};
   font-size: 18px;
   margin-right: .5em;
 `;
 
 const Title = styled.h3`
-  font-family: 'opensans-bold';
   text-transform: capitalize;
   color: ${colors.white};
   font-size: 26px;
