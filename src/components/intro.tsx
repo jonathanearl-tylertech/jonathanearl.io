@@ -5,7 +5,6 @@ import data from '../data/intro';
 
 export const Intro = () => {
   return (
-    
     <WindowArea>
       <WindowBar>
         <ColoredCircle color="#ff6961"></ColoredCircle>
