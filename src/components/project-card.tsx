@@ -27,7 +27,7 @@ export const ProjectCard = (props: { project: Project, reverse: boolean }) => {
         <Description>
           <div>{project.description}</div>
           <TechnologyArea>
-            { project.technologies.map(t => (<Chip className={classes.root} label={t}/>)) }
+            { project.technologies.map(t => (<Chip key={t} className={classes.root} label={t}/>)) }
           </TechnologyArea>
         </Description>
         <Row>
@@ -119,7 +119,7 @@ const Row = styled.div`
   flex-direction: row;
 `;
 
-const Description = styled.p`
+const Description = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;

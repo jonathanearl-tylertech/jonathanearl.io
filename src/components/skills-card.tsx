@@ -1,24 +1,58 @@
 import React from 'react';
-import '../styles/index.scss';
+import styled from 'styled-components';
+import { colors } from '../styles/colors'
 
 type Prop = { title: string, skills: string[], index: number };
 
 export const SkillsCard = ({ title, skills, index }: Prop) => {
 
   return (
-    <div className={`skill skill--${index}`}>
-      <div className={`skill__header skill__header--${index}`}>
-        <div className={`skill__header-tint skill__header-tint--${index}`}>
-          <h3 className="skill__title-container">
-            <div className={`skill__title skill__title--${index}`}>{title}</div>
-          </h3>
-        </div>
-      </div>
-      <ul className="skill__list">
+    <Card>
+      <Header>
+        <Title >{title}</Title>
+      </Header>
+      <SkillsList>
         {
-          skills.map(skill => (<li className="skill__item">{skill}</li>))
+          skills.map(skill => (<SkillsItem key={skill}>{skill}</SkillsItem>))
         }
-      </ul>
-    </div>
+      </SkillsList>
+    </Card>
   );
 }
+
+
+const Card = styled.div`
+  width: 320px;
+`;
+
+const Header = styled.div`
+  position: relative;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  clip-path: polygon(0 50%, 100% 25%, 100% 75%, 0 100%);
+  background-color: #F5DF4D;
+  height: 250px;
+`;
+
+const Title = styled.h3`
+  display:flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 75%;
+  width: 100%;
+  color: ${colors.black};
+  font-size: 24px;
+  text-transform: capitalize;
+  padding: 0 4px;
+`;
+
+const SkillsList = styled.ul`
+`;
+
+const SkillsItem = styled.li`
+  color: ${colors.black};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
