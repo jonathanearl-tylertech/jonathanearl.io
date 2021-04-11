@@ -1,7 +1,7 @@
 import bkmrkrImage from '../images/projects/bkmrkr-small.jpg';
 import figImage from '../images/projects/kg-slim.png';
 import gameGui from '../images/projects/game_gui-small.jpg';
-
+import jonathanearlioImage from '../images/projects/jonathanearlio.png';
 
 export type Project = {
   projectType: 'fun' | 'personal' | 'group' | 'learning'
@@ -18,7 +18,7 @@ export const projects: Project[] = [
   {
     projectType: 'personal',
     name: 'jonathanearl.io',
-    imgUrl: undefined,
+    imgUrl: jonathanearlioImage,
     description: 'My current portfolio',
     demoUrl: '/',
     githubUrl: 'https://github.com/whattheearl/jonathanearl.io',
