@@ -24,12 +24,12 @@ export const ProjectCard = (props: { project: Project, reverse: boolean }) => {
       <ColVersion>
         <ProjectLabel>{project.projectType} project</ProjectLabel>
         <Title>{project.name}</Title>
-        <Description>
+        <DescriptionArea>
           <div>{project.description}</div>
           <TechnologyArea>
             { project.technologies.map(t => (<Chip key={t} className={classes.root} label={t}/>)) }
           </TechnologyArea>
-        </Description>
+        </DescriptionArea>
         <Row>
           <Button href={project.githubUrl}>
             <FaGithub />
@@ -122,7 +122,7 @@ const Row = styled.div`
   flex-direction: row;
 `;
 
-const Description = styled.p`
+const DescriptionArea = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
