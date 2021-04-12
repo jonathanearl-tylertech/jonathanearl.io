@@ -20,9 +20,11 @@ export const SkillsCard = ({ title, skills, index }: Prop) => {
   );
 }
 
-
 const Card = styled.div`
-  width: 320px;
+  width: 100%;
+  @media (min-width: 481px) {
+    width: 320px;
+  }
 `;
 
 const Header = styled.div`

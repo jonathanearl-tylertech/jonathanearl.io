@@ -27,7 +27,7 @@ export const ProjectCard = (props: { project: Project, reverse: boolean }) => {
         <Description>
           <div>{project.description}</div>
           <TechnologyArea>
-            { project.technologies.map(t => (<Chip key={t} className={classes.root} label={t}/>)) }
+            { project.technologies.map(t => (<Chip className={classes.root} label={t}/>)) }
           </TechnologyArea>
         </Description>
         <Row>
@@ -51,10 +51,13 @@ const Card = styled.article`
   position: relative;
   height: 300px;
   width: 100%;
-  display: flex;
   margin-bottom: 100px;
   justify-content: space-around;
   align-items: center;
+  display: none;
+  @media (min-width: 481px) {
+    display: flex;
+  }
 `;
 
 const ImageWrapper = styled.div`
@@ -119,7 +122,7 @@ const Row = styled.div`
   flex-direction: row;
 `;
 
-const Description = styled.div`
+const Description = styled.p`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
