@@ -22,20 +22,20 @@ export const ProjectCardMobile = (props: { project: Project, reverse: boolean })
       <ProjectLabel>{project.projectType} project</ProjectLabel>
       <Title>{project.name}</Title>
       <Image src={project.imgUrl ? project.imgUrl : 'https://place.dog/300/200'} />
-      <Description>
+      <DescriptionArea>
         <div>{project.description}</div>
         <TechnologyArea>
           {project.technologies.map(t => (<Chip key={`${t}-mobile`} className={classes.root} label={t} />))}
         </TechnologyArea>
-      </Description>
-      <Row>
+      </DescriptionArea>
+      <Links>
         <Button href={project.githubUrl}>
           <FaGithub />
         </Button>
         <Button href={project.demoUrl}>
           <FaLink></FaLink>
         </Button>
-      </Row>
+      </Links>
     </Card>
   );
 }
@@ -67,12 +67,13 @@ const ProjectLabel = styled.h3`
   text-transform: capitalize;
 `;
 
-const Row = styled.div`
+const Links = styled.ul`
   display: flex;
+  flex-direction: row;
   justify-content: flex-end;
 `;
 
-const Description = styled.p`
+const DescriptionArea = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -93,8 +94,8 @@ const Title = styled.h3`
 `;
 
 const Button = styled.a`
-  display: flex;
-  align-items: center;
+  display: ${props => (props.href? 'flex': 'none')};
+  align-items: flex-end;
   font-size: 20px;
   padding: .5em;
   color: #555;
