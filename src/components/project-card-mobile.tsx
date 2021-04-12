@@ -25,7 +25,7 @@ export const ProjectCardMobile = (props: { project: Project, reverse: boolean })
       <Description>
         <div>{project.description}</div>
         <TechnologyArea>
-          {project.technologies.map(t => (<Chip className={classes.root} label={t} />))}
+          {project.technologies.map(t => (<Chip key={`${t}-mobile`} className={classes.root} label={t} />))}
         </TechnologyArea>
       </Description>
       <Row>

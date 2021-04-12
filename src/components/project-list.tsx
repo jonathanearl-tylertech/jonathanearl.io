@@ -7,8 +7,8 @@ import { projects } from '../data/projects';
 export const ProjectList = () => {
   return (
     <Section>
-      { projects.map((project, index) => (<ProjectCard key={index} project={project} reverse={index % 2 === 0} />))}
-      { projects.map((project, index) => (<ProjectCardMobile key={index} project={project} reverse={index % 2 === 0} />))}
+      { projects.map((project, index) => (<ProjectCard key={`${project.name}`} project={project} reverse={index % 2 === 0} />))}
+      { projects.map((project, index) => (<ProjectCardMobile key={`${project.name}-mobile`} project={project} reverse={index % 2 === 0} />))}
     </Section>
   )
 }
