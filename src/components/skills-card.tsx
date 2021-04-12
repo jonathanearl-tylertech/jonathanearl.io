@@ -9,12 +9,10 @@ export const SkillsCard = ({ title, skills, index }: Prop) => {
   return (
     <Card>
       <Header>
-        <Title >{title}</Title>
+        <Title>{title}</Title>
       </Header>
       <SkillsList>
-        {
-          skills.map(skill => (<SkillsItem key={skill}>{skill}</SkillsItem>))
-        }
+        { skills.map(skill => (<SkillsItem key={skill}>{skill}</SkillsItem>)) }
       </SkillsList>
     </Card>
   );
@@ -29,11 +27,13 @@ const Card = styled.div`
 
 const Header = styled.div`
   position: relative;
+  box-sizing: border-box;
+  padding-right: 1em;
   width: 100%;
   background-position: center;
   background-size: cover;
   clip-path: polygon(0 50%, 100% 25%, 100% 75%, 0 100%);
-  background-color: #F5DF4D;
+  background-color: ${colors.yellow};
   height: 250px;
 `;
 

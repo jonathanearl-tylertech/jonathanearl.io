@@ -25,18 +25,14 @@ export const ProjectCard = (props: { project: Project, reverse: boolean }) => {
         <ProjectLabel>{project.projectType} project</ProjectLabel>
         <Title>{project.name}</Title>
         <DescriptionArea>
-          <div>{project.description}</div>
+          <Description>{project.description}</Description>
           <TechnologyArea>
             { project.technologies.map(t => (<Chip key={t} className={classes.root} label={t}/>)) }
           </TechnologyArea>
         </DescriptionArea>
         <Row>
-          <Button href={project.githubUrl}>
-            <FaGithub />
-          </Button>
-          <Button href={project.demoUrl}>
-            <FaLink></FaLink>
-          </Button>
+          <Button href={project.githubUrl}><FaGithub /> Github</Button>
+          <Button href={project.demoUrl}><FaLink/> Demo</Button>
         </Row>
       </ColVersion>
       <ImageVersion>
@@ -66,7 +62,7 @@ const ImageWrapper = styled.div`
   left: 0;
   height: 300px;
   width: 60%;
-  background-color: #939597;
+  background-color: ${colors.grey};
   overflow: hidden;
 `;
 
@@ -76,7 +72,7 @@ const ReverseImageWrapper = styled.div`
   right: 0;
   height: 300px;
   width: 60%;
-  background-color: #939597;
+  background-color: ${colors.grey};
   overflow: hidden;
 `;
 
@@ -127,24 +123,27 @@ const DescriptionArea = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: auto;
-  background-color: #F5DF4D;
-  color: #333;
+  background-color: ${colors.yellow};
   min-height: 125px;
   width: 100%;
   font-weight: 500;
-  font-size: 22px;
   padding: 1em;
+`;
+
+const Description = styled.p`
+  color: ${colors.black};
+  margin-bottom: 1em;
 `;
 
 const Title = styled.h3`
   text-transform: capitalize;
   font-size: 28px;
   margin-bottom: 1em;
-  color: #333;
+  color: ${colors.black};
 `;
 
 const Button = styled.a`
-  display: flex;
+  display: ${props => (props.href? 'flex': 'none')};
   align-items: center;
   font-size: 20px;
   padding: .5em;
