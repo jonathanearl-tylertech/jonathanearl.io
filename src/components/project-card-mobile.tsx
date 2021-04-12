@@ -4,7 +4,6 @@ import { Project } from '../data/projects';
 import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
 import { FaLink } from '@react-icons/all-files/fa/FaLink';
 import { colors } from '../styles/colors';
-import { Chip } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -13,8 +12,8 @@ const useStyles = makeStyles({
   },
 });
 
-export const ProjectCardMobile = (props: { project: Project, reverse: boolean }) => {
-  const { project, reverse } = props;
+export const ProjectCardMobile = (props: { project: Project }) => {
+  const { project } = props;
   const classes = useStyles();
 
   return (
@@ -23,10 +22,7 @@ export const ProjectCardMobile = (props: { project: Project, reverse: boolean })
       <Title>{project.name}</Title>
       <Image src={project.imgUrl ? project.imgUrl : 'https://place.dog/300/200'} />
       <DescriptionArea>
-        <div>{project.description}</div>
-        <TechnologyArea>
-          {project.technologies.map(t => (<Chip key={`${t}-mobile`} className={classes.root} label={t} />))}
-        </TechnologyArea>
+        <Description>{project.description}</Description>
       </DescriptionArea>
       <Links>
         <Button href={project.githubUrl}>
@@ -39,7 +35,6 @@ export const ProjectCardMobile = (props: { project: Project, reverse: boolean })
     </Card>
   );
 }
-
 
 const Card = styled.article`
   padding: 50px 8px;
@@ -76,14 +71,15 @@ const Links = styled.ul`
 const DescriptionArea = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
   margin-bottom: auto;
   color: ${colors.black};
-  min-height: 125px;
   width: 100%;
   font-weight: 500;
-  font-size: 22px;
   padding: 1em;
+`;
+
+const Description = styled.p`
+  margin-bottom: 1em;
 `;
 
 const Title = styled.h3`
@@ -96,17 +92,8 @@ const Title = styled.h3`
 const Button = styled.a`
   display: ${props => (props.href? 'flex': 'none')};
   align-items: flex-end;
-  font-size: 20px;
-  padding: .5em;
+  font-size: 30px;
   color: #555;
-  & > * {
-    margin-right: .5em;
-  }
-`;
-
-const TechnologyArea = styled.div`
-  margin-top: auto;
-  display: flex;
   & > * {
     margin-right: 1em;
   }
