@@ -115,9 +115,12 @@ const ConsoleArea = styled.div`
 
 const WindowArea = styled.div`
   font-family: 'meslo';
-  margin: 100px auto;
   height: 500px;
-  width: 900px;
+  max-width: 900px;
+  width: 100%;
   border-radius: 4px;
   overflow: hidden;
+  @media (min-width: 481px) {
+    margin: 100px auto;
+  }
 `;
