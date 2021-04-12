@@ -18,9 +18,10 @@ const Section = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   margin-bottom: 100px;
   @media (min-width: 481px) {
-    margin: 200px auto;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto 150px auto;
   }
 `;
