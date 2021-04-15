@@ -121,6 +121,6 @@ const WindowArea = styled.div`
   border-radius: 4px;
   overflow: hidden;
   @media (min-width: 481px) {
-    margin: 100px auto;
+    margin: 0 auto 100px auto;
   }
 `;
