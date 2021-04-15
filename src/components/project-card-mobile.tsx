@@ -28,7 +28,7 @@ export const ProjectCardMobile = (props: { project: Project }) => {
 
       <DescriptionArea>
         <TagArea>
-          <Title>tech</Title>{ project.technologies.map(t => <Tag>{`#${t.replace(' ', '-')}`}</Tag>)}
+          <Title>tech</Title>{ project.technologies.map(t => <Tag key={ t }>{`#${t.replace(' ', '-')}`}</Tag>)}
         </TagArea>
         <Description>
           <Title>{`${'description '}`}</Title><span>{ project.description }</span>
@@ -50,8 +50,9 @@ const Card = styled.article`
 `;
 
 const Image = styled.img`
-  height: 100vw;
-  width: 100%;
+  max-height: 75vh;
+  min-height: 75vw;
+  max-width: 100%;
   object-fit: contain;
   background-color: #000;
   margin-bottom: 16px;
