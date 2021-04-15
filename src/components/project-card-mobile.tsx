@@ -14,14 +14,18 @@ export const ProjectCardMobile = (props: { project: Project }) => {
         <ProjectLabel>{project.projectType} project</ProjectLabel>
       </Header>
       <Image src={project.imgUrl ? project.imgUrl : 'https://place.dog/300/200'} />
-      <Links>
-        <Button href={project.githubUrl}>
-          <FaGithubSquare />
-        </Button>
-        <Button href={project.demoUrl}>
-          <FaLink></FaLink>
-        </Button>
-      </Links>
+      {
+        (project.githubUrl || project.demoUrl)? 
+        <Links>
+          <Button href={project.githubUrl}>
+            <FaGithubSquare />
+          </Button>
+          <Button href={project.demoUrl}>
+            <FaLink></FaLink>
+          </Button>
+        </Links> : null
+      }
+
       <DescriptionArea>
         <TagArea>
           <Title>tech</Title>{ project.technologies.map(t => <Tag key={ t }>{`#${t.replace(' ', '-')}`}</Tag>)}
