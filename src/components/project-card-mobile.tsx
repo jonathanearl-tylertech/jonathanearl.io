@@ -7,7 +7,6 @@ import { colors } from '../styles/colors';
 
 export const ProjectCardMobile = (props: { project: Project }) => {
   const { project } = props;
-
   return (
     <Card>
       <Header>
@@ -15,17 +14,21 @@ export const ProjectCardMobile = (props: { project: Project }) => {
         <ProjectLabel>{project.projectType} project</ProjectLabel>
       </Header>
       <Image src={project.imgUrl ? project.imgUrl : 'https://place.dog/300/200'} />
-      <Links>
-        <Button href={project.githubUrl}>
-          <FaGithubSquare />
-        </Button>
-        <Button href={project.demoUrl}>
-          <FaLink></FaLink>
-        </Button>
-      </Links>
+      {
+        (project.githubUrl || project.demoUrl)? 
+        <Links>
+          <Button href={project.githubUrl}>
+            <FaGithubSquare />
+          </Button>
+          <Button href={project.demoUrl}>
+            <FaLink></FaLink>
+          </Button>
+        </Links> : null
+      }
+
       <DescriptionArea>
         <TagArea>
-          <Title>tech</Title>{ project.technologies.map(t => <Tag>{`#${t}`}</Tag>)}
+          <Title>tech</Title>{ project.technologies.map(t => <Tag key={ t }>{`#${t.replace(' ', '-')}`}</Tag>)}
         </TagArea>
         <Description>
           <Title>{`${'description '}`}</Title><span>{ project.description }</span>
@@ -47,8 +50,9 @@ const Card = styled.article`
 `;
 
 const Image = styled.img`
-  height: calc(3 * 100vw/4);
-  width: 100%;
+  max-height: 75vh;
+  min-height: 75vw;
+  max-width: 100%;
   object-fit: contain;
   background-color: #000;
   margin-bottom: 16px;
@@ -77,7 +81,7 @@ const Tag = styled.span`
 const Links = styled.ul`
   display: flex;
   flex-direction: row;
-  margin-top: -8px;
+  margin: -16px 0 0 0;
   padding: 0 8px 0 8px;
   box-sizing: border-box;
 `;
