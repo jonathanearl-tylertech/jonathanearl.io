@@ -10,29 +10,25 @@ export const ProjectCardMobile = (props: { project: Project }) => {
   return (
     <Card>
       <Header>
-        <Title>{`/${project.name}`}</Title>
+        <Title>{`${project.name}`}</Title>
         <ProjectLabel>{project.projectType} project</ProjectLabel>
       </Header>
       <Image src={project.imgUrl ? project.imgUrl : 'https://place.dog/300/200'} />
-      {
-        (project.githubUrl || project.demoUrl)? 
-        <Links>
-          <Button href={project.githubUrl}>
-            <FaGithubSquare />
-          </Button>
-          <Button href={project.demoUrl}>
-            <FaLink></FaLink>
-          </Button>
-        </Links> : null
-      }
-
+      <Links>
+        <Button href={project.githubUrl}>
+          <FaGithubSquare />
+        </Button>
+        <Button href={project.demoUrl}>
+          <FaLink></FaLink>
+        </Button>
+      </Links>
       <DescriptionArea>
+        <Description>
+          <Title>description</Title><span>{ project.description }</span>
+        </Description>
         <TagArea>
           <Title>tech</Title>{ project.technologies.map(t => <Tag key={ t }>{`#${t.replace(' ', '-')}`}</Tag>)}
         </TagArea>
-        <Description>
-          <Title>{`${'description '}`}</Title><span>{ project.description }</span>
-        </Description>
       </DescriptionArea>
     </Card>
   );
@@ -61,8 +57,9 @@ const Image = styled.img`
 const ProjectLabel = styled.h3`
   font-size: 14px;
   line-height: 18px;
+  font-weight: 400;
   color: ${colors.grey};
-  text-transform: capitalize;
+  text-transform: lowercase;
 `;
 
 const TagArea = styled.div`
@@ -95,10 +92,9 @@ const Button = styled.a`
 `;
 
 const DescriptionArea = styled.div`
-  letter-spacing: -1px;
+  letter-spacing: 0px;
   display: flex;
   flex-direction: column;
-  margin-bottom: auto;
   color: ${colors.black};
   width: 100%;
   font-weight: 400;
@@ -107,10 +103,11 @@ const DescriptionArea = styled.div`
 
 const Description = styled.p`
   display: block;
-  margin-bottom: 1em;
+  margin-bottom: 8px;
   font-size: 14px;
   line-height: 18px;
   color: ${colors.black};
+  text-transform: lowercase;
 `;
 
 const Title = styled.span`
@@ -118,6 +115,7 @@ const Title = styled.span`
   font-size: 14px;
   font-weight: 600;
   color: ${colors.black};
+  text-transform: lowercase;
 `;
 
 
@@ -125,6 +123,6 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 8px;
+  padding: 12px 16px;
   border-bottom: 1px solid rgb(229, 229, 229);
 `;
