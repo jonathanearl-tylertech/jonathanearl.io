@@ -47,7 +47,7 @@ const Card = styled.article`
 `;
 
 const Image = styled.img`
-  height: calc(3 * 100vw/4);
+  height: 100vw;
   width: 100%;
   object-fit: contain;
   background-color: #000;
@@ -80,6 +80,7 @@ const Links = styled.ul`
   margin-top: -8px;
   padding: 0 8px 0 8px;
   box-sizing: border-box;
+  min-height: 8px;
 `;
 
 const Button = styled.a`
