@@ -25,7 +25,7 @@ export const ProjectCardMobile = (props: { project: Project }) => {
       </Links>
       <DescriptionArea>
         <TagArea>
-          <Title>tech</Title>{ project.technologies.map(t => <Tag>{`#${t}`}</Tag>)}
+          <Title>tech</Title>{ project.technologies.map(t => <Tag>{`#${t.replace(' ', '-')}`}</Tag>)}
         </TagArea>
         <Description>
           <Title>{`${'description '}`}</Title><span>{ project.description }</span>
