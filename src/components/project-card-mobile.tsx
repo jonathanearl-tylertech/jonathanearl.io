@@ -50,8 +50,8 @@ const Card = styled.article`
 `;
 
 const Image = styled.img`
-  max-height: 75vh;
-  min-height: 75vw;
+  min-height: 45vw;
+  max-height: 100vw;
   max-width: 100%;
   object-fit: contain;
   background-color: #000;
@@ -79,6 +79,7 @@ const Tag = styled.span`
 `;
 
 const Links = styled.ul`
+  border-top: 1px solid rgb(229, 229, 229);
   display: flex;
   flex-direction: row;
   margin: -16px 0 0 0;
@@ -87,7 +88,6 @@ const Links = styled.ul`
 `;
 
 const Button = styled.a`
-  display: ${props => (props.href ? 'flex' : 'none')};
   align-items: flex-end;
   font-size: 24px;
   padding: 8px;
@@ -95,6 +95,7 @@ const Button = styled.a`
 `;
 
 const DescriptionArea = styled.div`
+  letter-spacing: -1px;
   display: flex;
   flex-direction: column;
   margin-bottom: auto;
@@ -125,4 +126,5 @@ const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 16px 8px;
+  border-bottom: 1px solid rgb(229, 229, 229);
 `;
