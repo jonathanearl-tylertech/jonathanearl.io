@@ -4,5 +4,5 @@ export const colors = {
   navy: 'rgb(17, 34, 64)',
   grey: '#939597',
   green: '#33ff33',
-  black: '#333',
+  black: '#262626',
 }
