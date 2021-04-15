@@ -1,71 +1,93 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Project } from '../data/projects';
-import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
+import { FaGithubSquare } from '@react-icons/all-files/fa/FaGithubSquare';
 import { FaLink } from '@react-icons/all-files/fa/FaLink';
 import { colors } from '../styles/colors';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles({
-  root: {
-    backgroundColor: 'white',
-  },
-});
 
 export const ProjectCardMobile = (props: { project: Project }) => {
   const { project } = props;
-  const classes = useStyles();
 
   return (
     <Card>
-      <ProjectLabel>{project.projectType} project</ProjectLabel>
-      <Title>{project.name}</Title>
+      <Header>
+        <Title>{`/${project.name}`}</Title>
+        <ProjectLabel>{project.projectType} project</ProjectLabel>
+      </Header>
       <Image src={project.imgUrl ? project.imgUrl : 'https://place.dog/300/200'} />
-      <DescriptionArea>
-        <Description>{project.description}</Description>
-      </DescriptionArea>
       <Links>
         <Button href={project.githubUrl}>
-          <FaGithub />
+          <FaGithubSquare />
         </Button>
         <Button href={project.demoUrl}>
           <FaLink></FaLink>
         </Button>
       </Links>
+      <DescriptionArea>
+        <TagArea>
+          <Title>tech</Title>{ project.technologies.map(t => <Tag>{`#${t}`}</Tag>)}
+        </TagArea>
+        <Description>
+          <Title>{`${'description '}`}</Title><span>{ project.description }</span>
+        </Description>
+      </DescriptionArea>
     </Card>
   );
 }
 
 const Card = styled.article`
-  padding: 50px 8px;
   position: relative;
-  margin-bottom: 50px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: ${colors.grey};
-  clip-path: polygon(0 0, 100% 12%, 100% 100%, 0 88%);
+  margin-bottom: 16px;
   @media (min-width: 481px) {
     display: none;
   }
 `;
 
 const Image = styled.img`
+  height: calc(3 * 100vw/4);
   width: 100%;
-  max-height: 300px;
-  object-fit: cover;
+  object-fit: contain;
+  background-color: #000;
+  margin-bottom: 16px;
 `;
 
 const ProjectLabel = styled.h3`
-  font-size: 13px;
-  color: ${colors.yellow};
+  font-size: 14px;
+  line-height: 18px;
+  color: ${colors.grey};
   text-transform: capitalize;
+`;
+
+const TagArea = styled.div`
+  display: flex;
+  margin-bottom: 8px;
+`;
+
+const Tag = styled.span`
+  margin-right: 1ch;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgb(0, 55, 107);
+  text-transform: lowercase;
 `;
 
 const Links = styled.ul`
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  margin-top: -8px;
+  padding: 0 8px 0 8px;
+  box-sizing: border-box;
+`;
+
+const Button = styled.a`
+  display: ${props => (props.href ? 'flex' : 'none')};
+  align-items: flex-end;
+  font-size: 24px;
+  padding: 8px;
+  color: ${colors.black};
 `;
 
 const DescriptionArea = styled.div`
@@ -74,27 +96,29 @@ const DescriptionArea = styled.div`
   margin-bottom: auto;
   color: ${colors.black};
   width: 100%;
-  font-weight: 500;
-  padding: 1em;
+  font-weight: 400;
+  padding: 0 16px;
 `;
 
 const Description = styled.p`
+  display: block;
   margin-bottom: 1em;
-`;
-
-const Title = styled.h3`
-  text-transform: capitalize;
-  font-size: 28px;
-  margin-bottom: 1em;
+  font-size: 14px;
+  line-height: 18px;
   color: ${colors.black};
 `;
 
-const Button = styled.a`
-  display: ${props => (props.href? 'flex': 'none')};
-  align-items: flex-end;
-  font-size: 30px;
-  color: #555;
-  & > * {
-    margin-right: 1em;
-  }
+const Title = styled.span`
+  margin-right: 1ch;
+  font-size: 14px;
+  font-weight: 600;
+  color: ${colors.black};
+`;
+
+
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 8px;
 `;
