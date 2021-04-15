@@ -7,7 +7,6 @@ import { colors } from '../styles/colors';
 
 export const ProjectCardMobile = (props: { project: Project }) => {
   const { project } = props;
-
   return (
     <Card>
       <Header>
@@ -15,14 +14,18 @@ export const ProjectCardMobile = (props: { project: Project }) => {
         <ProjectLabel>{project.projectType} project</ProjectLabel>
       </Header>
       <Image src={project.imgUrl ? project.imgUrl : 'https://place.dog/300/200'} />
-      <Links>
-        <Button href={project.githubUrl}>
-          <FaGithubSquare />
-        </Button>
-        <Button href={project.demoUrl}>
-          <FaLink></FaLink>
-        </Button>
-      </Links>
+      {
+        (project.githubUrl || project.demoUrl)? 
+        <Links>
+          <Button href={project.githubUrl}>
+            <FaGithubSquare />
+          </Button>
+          <Button href={project.demoUrl}>
+            <FaLink></FaLink>
+          </Button>
+        </Links> : null
+      }
+
       <DescriptionArea>
         <TagArea>
           <Title>tech</Title>{ project.technologies.map(t => <Tag>{`#${t.replace(' ', '-')}`}</Tag>)}
@@ -77,10 +80,9 @@ const Tag = styled.span`
 const Links = styled.ul`
   display: flex;
   flex-direction: row;
-  margin-top: -8px;
+  margin: -16px 0 0 0;
   padding: 0 8px 0 8px;
   box-sizing: border-box;
-  min-height: 8px;
 `;
 
 const Button = styled.a`
