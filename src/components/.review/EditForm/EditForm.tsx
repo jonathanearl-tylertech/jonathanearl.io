@@ -1,7 +1,7 @@
 import react, { SyntheticEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './EditForm.css'
-import { PROJECTS } from '../../data/projects';
+import { PROJECTS } from '../../../data/PROJECTS';
 
 export default function () {
     const { id } = useParams() as { id: string };
