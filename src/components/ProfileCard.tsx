@@ -1,7 +1,7 @@
 import React from 'react';
 import { PROFILE } from '../data/PROFILE';
 
-export const Profile = () => {
+export const ProfileCard = () => {
   return (
     <section className="flex flex-col mb-8">
       <div className="flex w-full mb-8">

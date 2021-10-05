@@ -1,11 +1,11 @@
 import React from 'react';
-import { Profile } from './components/Profile'
-import { Skills } from './components/Skills';
+import { ProfileCard } from './components/ProfileCard'
+import { Skills } from './components/SkillsSection';
 
 export default function App() {
   return (
     <main className="flex flex-col h-screen v-screen">
-      <Profile />
+      <ProfileCard />
       <Skills />
     </main>
   );
