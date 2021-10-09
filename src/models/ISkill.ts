@@ -1,4 +1,4 @@
 export interface ISkill {
   name: string;
-  width: string;
+  yearsOfExperience: number;
 }
