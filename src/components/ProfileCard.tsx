@@ -3,7 +3,7 @@ import { PROFILE } from '../data/PROFILE';
 
 export const ProfileCard = () => {
   return (
-    <section className="flex flex-col mb-8 sm:flex-row sm:p-4 sm:content-center sm:justify-center md:p-16">
+    <section className="flex flex-col mb-16 max-w-screen-lg mx-auto sm:flex-row sm:px-4 sm:content-center sm:justify-center md:px-16">
       <div className="flex w-full h-full mb-8 sm:mb-0">
         <img className="h-full w-full max-w-36" src={PROFILE.img} alt="user profile" />
       </div>
