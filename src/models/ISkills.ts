@@ -1,8 +1,17 @@
-import { ISkill } from './ISkill';
+export interface ISkill {
+  name: string;
+  yearsOfExperience: number;
+}
 
-export interface ISkills {
-  frontend: ISkill[];
-  backend: ISkill[];
-  languages: ISkill[];
-  other: ISkill[];
+export interface ISkillCatagory {
+  name: string,
+  description: string,
+  skills: ISkill[]
+}
+
+export interface ISkillCatagories {
+  frontend: ISkillCatagory;
+  backend: ISkillCatagory;
+  languages: ISkillCatagory;
+  other: ISkillCatagory;
 }
